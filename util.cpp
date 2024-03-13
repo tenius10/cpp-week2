@@ -7,9 +7,16 @@ using namespace std;
 string generateRandomThreeNumbers(){
     srand(time(nullptr));
     string result="";
+    bool exist[10]={false,};
     for(int i=0;i<3;i++){
-        int randNum=rand()%10;
-        result+=to_string(randNum);
+        while(true){
+            int randNum=rand()%10;
+            if(!exist[randNum]){
+                exist[randNum]=true;
+                result+=to_string(randNum);
+                break;
+            }
+        }
     }
     return result;
 }

@@ -37,11 +37,16 @@ bool checkAnswer(string answer, string guess){
 
 void startGame(){
     string answer=generateRandomThreeNumbers();
-    cout<<"Answer is "<<answer<<"\n";
-    while(true){
+    int chances=5;
+    bool gameClear;
+
+    while(chances > 0){
+        cout<<chances<<" chances left.\n";
         cout<<"Enter a guess: ";
         string guess=getThreeNumbers();
-        bool gameClear=checkAnswer(answer, guess);
+        gameClear=checkAnswer(answer, guess);
         if(gameClear) break;
+        chances--;
     }
+    if(!gameClear) cout<<"You lose!";
 }
