@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+string generateRandomThreeNumbers();
 string getThreeNumbers();
 
 int getStrikes(string answer, string guess){
@@ -35,9 +36,8 @@ bool checkAnswer(string answer, string guess){
 }
 
 void startGame(){
-    cout<<"Enter a answer: ";
-    string answer=getThreeNumbers();
-    int strikes, balls;
+    string answer=generateRandomThreeNumbers();
+    cout<<"Answer is "<<answer<<"\n";
     while(true){
         cout<<"Enter a guess: ";
         string guess=getThreeNumbers();
